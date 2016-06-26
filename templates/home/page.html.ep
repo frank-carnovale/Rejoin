@@ -1,0 +1,25 @@
+% layout 'default';
+% title 'Rejoin';
+
+<div class="center centered tb-margin"> 
+    <div class="w300 inline ui-widget-content">
+        <h1 id="stay">
+            %= $outcome->stay
+        </h1>
+        <a id="stay" class="button bigbut">I WISH FOR THE UK TO REJOIN THE EU!</a>
+    </div>
+    <div class="w300 inline ui-widget-content">
+        <h1 id="quit">
+            %= $outcome->quit
+        </h1>
+        <a id="quit" class="button bigbut">I REALLY WANT THE UK TO STAY OUT OF THE EU!</a>
+    </div>
+</div>
+
+<div class="center centered tb-margin" style="display:none"> 
+    <h2 class="w300 inline"><em>
+        "Against stupidity, the gods themselves contend in vain"
+    </em></h2>
+    .. Friedrich Schiller
+</div>
+

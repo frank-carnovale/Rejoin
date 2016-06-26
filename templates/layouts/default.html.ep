@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title><%= title %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="google-signin-scope"     content="email">
+    <meta name="google-signin-client_id" content="<%= config 'OAUTH2_CLIENT_ID' %>">
+
+    % param(theme=>session('theme')||config 'DEFAULT_THEME') unless param('theme');
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/<%=param('theme')%>/jquery-ui.css" id="jqueryui-theme">
+    %#
+    % if(stash 'include_bs') {
+    <link rel="stylesheet" href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css'>
+    <link rel="stylesheet" href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    % }
+
+    <link rel="stylesheet" href="/css/rejoin.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//apis.google.com/js/platform.js"></script>
+    <script src="/js/rejoin.js"></script>
+</head>
+
+<script id="session" type="application/json"><%== Mojo::JSON::encode_json(session)%></script>
+
+% my ($imgsrc, $imgtit, $hiname, $tokeninfo) = ( '', '', '', session 'tokeninfo');
+% my $voter = stash('voter');
+
+<body class="ui-widget">
+    <div id="header" class="ui-widget-header ui-corner-all ui-helper-clearfix">
+
+        <a id="logo" class="left ui-corner-all" href="<%=url_for '/'%>">&nbsp;</a>
+
+        <h2 class="left pad10">Rejoin the EU?</h2>
+
+        <div class="right pad10">
+            % if ($tokeninfo) {
+                % $imgsrc = $tokeninfo->{picture};
+                % $imgtit = "Google Account: $tokeninfo->{name}\n($tokeninfo->{email})";
+                % $hiname = $tokeninfo->{name};
+            % } else {
+                <style>.known {display:none}</style>
+            % }
+
+            <div class="identity unknown">
+                <div id="signin"></div>
+            </div>
+
+            <div class="identity known">
+                <a id="identity-imglnk" href="https://myaccount.google.com" target="_blank">
+                    <img src="<%=$imgsrc%>" title="<%=$imgtit%>"/>
+                </a>
+            </div>
+
+            <div class="identity known">
+                <div class="identity-line"><a id="name">Hi, <%=$hiname%></a></div>
+                <div class="identity-line">
+                    <a id="signout"  href="#" onclick="signOut()"       class="button">Sign out</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    %# tag nesting below is modelled on jquery-ui info box examples
+
+    % for my $msg ( @{flash('messages')||[]}, @{stash('messages')||[]} ) {
+    %    next unless $msg;
+    %=   t div => class=>'ui-widget-content tables-notice ui-state-highlight ui-corner-all' => begin
+    %=     t p => begin
+    %=       t span => class=>'left ui-icon ui-icon-info', ''
+    %=       $msg
+    %      end
+    %    end
+    %  }
+
+    % for my $msg ( @{flash('errors')||[]}, @{stash('errors')||[]} ) {
+    %    next unless $msg;
+    %=   t div => class=>'ui-widget-content tables-notice ui-state-error ui-corner-all' => begin
+    %=     t p => begin
+    %=       t span => class=>'left ui-icon ui-icon-alert', ''
+    %=       $msg
+    %      end
+    %    end
+    %  }
+
+    <%= content %>
+
+    <div id="footer" class="pad8 ui-widget-header ui-corner-all ui-helper-clearfix">
+        <span id="status-line"><%=$voter%></span>
+        %= link_to 'Home'     => '/',         class=>'button'
+        %= link_to 'About'    => '/about',    class=>'button'
+        % if ($voter) {
+        %= link_to 'Feedback' => '/feedback', class=>'button'
+        % }
+        % if (session('admin')) {
+        %= link_to 'Admin'    => '/tables', class=>'button'
+        % }
+    </div>
+</body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51203330-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</html>

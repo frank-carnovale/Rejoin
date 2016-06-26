@@ -1,0 +1,28 @@
+% layout 'default';
+% title 'Rejoin? - Feedback';
+
+% $c->add_stash(messages=>'To get back to the Home Page at any time, click the Logo in the top-left of your screen');
+
+<div class="pad12 ui-widget-content ui-corner-all ui-helper-clearfix feedback">
+
+    <h2>Feedback</h2>
+
+    <p>
+        Please add a <em>very</em> brief comment about your vote or about this site.
+    </p>
+
+    <p>
+        We will attempt to gather and report distinct sentiments that emerge from your comments.
+    </p>
+
+    <form method="post">
+        %= text_area feedback => (class=>'ui-corner-all', maxlength=>400)
+        <button class="button" type="submit" name="submit">Submit</button>
+    </form>
+
+    <p>
+        Inappropriate language will be ignored and will lead to cancellation of your vote.
+    </p>
+
+</div>
+

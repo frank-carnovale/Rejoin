@@ -1,0 +1,74 @@
+
+/* rejoin.org.uk CSS */
+
+.home #homepic   { width: 420px;
+                   background-image: url(/img/rejoin.png);
+                   background-size: 100% 100%;
+                   background-repeat: no-repeat;
+                   margin-right: 20px;
+                  }
+
+
+body.ui-widget { font-size: 12px }
+
+.left    { float: left }
+.right   { float: right }
+.center  { text-align: center }
+.centered{ margin-left: auto; margin-right: auto }
+.w100    { width: 100px }
+.w150    { width: 150px }
+.w300    { width: 300px }
+.w400    { width: 400px }
+.w480    { width: 480px }
+
+.h150    { height: 150px }
+.h300    { height: 300px }
+
+.tb-margin { margin-top: 40px; margin-bottom: 40px }
+.no-tb-margin { margin-top: 0; margin-bottom: 0 }
+
+#header h1        { font-style: italic; margin: 6px 0 6px 6px}
+#header a#logo  { height: 72px; width: 70px; background: url(/img/rejoin.png); background-size: 100% }
+#header .identity { float: right; font-weight: normal; margin: 4px 0 0 20px; text-align: left }
+#header .identity .identity-line { margin-top: 2px }
+#header .identity #identity-imglnk img { border: 0; border-radius: 50px; height: 32px; width: 32px }
+
+#header input#search { padding: 1px 8px }
+
+#header  a.button span.ui-button-text,
+#footer  a.button span.ui-button-text { padding:0 .5em }
+div.stats .button span.ui-button-text { font-size: .9em }
+
+.unknown  { display: none }
+.inline   { display: inline-block }
+
+div.menubar { padding: 8px; line-height: 2.5em }
+div.tables-notice          { padding: 0.2em 0.8em }
+div.tables-notice .ui-icon { margin-right: 0.3em }
+div.tables-notice p        { margin: .3em 0 }
+
+a.bigbut { width: 200px; padding: 40px 10px; margin: 0 0 20px 0 }
+
+.mini-select        { line-height: normal }
+.mini-select label  { display: block }
+.mini-select select { width: 200px }
+.refresh-button     { padding: 1px }
+
+#footer a { float: right; display: inline-block; margin-left: 4px; margin-right: 4px }
+
+.pad2      { padding: 2px }
+.pad8      { padding: 8px }
+.pad10     { padding: 10px }
+.pad12     { padding: 12px }
+.content   { padding: 10px }
+
+@media (max-width: 600px) {
+    .home #homepic { display: none }
+    #header #banner-title { display: none }
+}
+
+//.about           { background: url(/img/flags.jpg) }
+.footnotes       { margin-top: 28px; border-top: black solid 1px; padding-top: 4px; font-size: 0.9em }
+.feedback textarea { width: 520px; height: 4em; display: block; margin-bottom: 8px }
+.ui-selectmenu-button { vertical-align: middle }
+
