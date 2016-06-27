@@ -7,7 +7,7 @@ use warnings;
 use base 'DBIx::Class::Schema';
 use       DBIx::Class::Schema::Loader::Dynamic;
 
-sub connect_info { [ 'dbi:Pg:dbname=rejoin', '', '' ] }
+sub connect_info { [ 'dbi:Pg:dbname=rejoin', '', '', { pg_enable_utf8=>1 } ] }
 
 sub setup {
     my $class = shift;
