@@ -1,7 +1,6 @@
 
 var session;
 var auth2;
-var profile;
 
 function ajaxerror(error) {
     // a native xhr does not auto-parse its responseJSON.
@@ -49,8 +48,8 @@ function init() {
 }
 
 function vote(ev) {
-    if (!(profile && profile.hg)) {
-        alert('Please sign in first with your Google ID so you can grant permission to record your vote.');
+    if (!auth2.isSignedIn.get()) {
+        alert('Please sign in first with your Google ID so you can allow us to record your vote.');
         return;
     }
     var how = $(this).attr('id');
@@ -81,7 +80,7 @@ function signinChanged(bSignedIn) {
     // signed in:
     if (bSignedIn) {
         var googleUser = auth2.currentUser.get();
-        profile = googleUser.getBasicProfile();
+        var profile = googleUser.getBasicProfile();
         var id = profile.getId();
         if (session.tokeninfo && session.tokeninfo.sub == id) {
             //console.log("old login: " + id);
