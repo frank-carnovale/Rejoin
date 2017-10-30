@@ -29,8 +29,9 @@ sub startup {
 
     # Router
     my $r = $app->routes;
-    $r->get('/')->to('home#page');
+    $r->get('/' => [format=>0])->to('home#page');
     $r->get('/about')->to('about#page');
+    $r->get('/die')->to(cb=>sub {die "user requested error\n"});
 
     $r->post('/oauth2/signin')->to('oauth2#signin');
     $r->post('/oauth2/signout')->to('oauth2#signout');

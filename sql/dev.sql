@@ -27,15 +27,12 @@ create table outcome (
 insert into outcome (memo, stay, quit) values ('totals', 0, 0);
 select * from outcome
 -----------------------------------
-create table feedback (
-)
------------------------------------
 select * from voter;
 select * from outcome;
-select * from feedback;
+select * from feedback
 -----------------------------------
-drop table feedback;
-create table feedback (
+xdrop table feedback;
+xcreate table feedback (
     gmail varchar references voter,
     ts timestamp default now(),
     words text not null,
