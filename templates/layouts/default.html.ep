@@ -97,6 +97,7 @@
         <span id="status-line"><%=$voter%></span>
         %= link_to 'Home'     => '/',         class=>'button'
         %= link_to 'About'    => '/about',    class=>'button'
+        %= link_to 'Privacy'  => '/privacy',  class=>'button'
         % if ($voter) {
         %= link_to 'Feedback' => '/feedback', class=>'button'
         % }
