@@ -35,7 +35,8 @@
 <body class="ui-widget">
     <div id="header" class="ui-widget-header ui-corner-all ui-helper-clearfix">
 
-        <a id="logo" class="left ui-corner-all" href="<%=url_for '/'%>">&nbsp;</a>
+        <a id="logo"  class="left ui-corner-all" href="<%=url_for '/'%>">&nbsp;</a>
+        <a id="logo1" class="left ui-corner-all" href="<%=url_for '/'%>">&nbsp;</a>
 
         <h2 class="left pad10">Rejoin the EU?</h2>
 

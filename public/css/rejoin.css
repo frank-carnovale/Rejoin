@@ -1,14 +1,6 @@
 
 /* rejoin.org.uk CSS */
 
-.home #homepic   { width: 420px;
-                   background-image: url(/img/rejoin.png);
-                   background-size: 100% 100%;
-                   background-repeat: no-repeat;
-                   margin-right: 20px;
-                  }
-
-
 body.ui-widget { font-size: 12px }
 
 .left    { float: left }
@@ -29,6 +21,7 @@ body.ui-widget { font-size: 12px }
 
 #header h1        { font-style: italic; margin: 6px 0 6px 6px}
 #header a#logo  { height: 72px; width: 70px; background: url(/img/rejoin.png); background-size: 100% }
+#header a#logo1 { height: 72px; width: 90px; background: url(/img/uk.png); background-size: cover }
 #header .identity { float: right; font-weight: normal; margin: 4px 0 0 20px; text-align: left }
 #header .identity .identity-line { margin-top: 2px }
 #header .identity #identity-imglnk img { border: 0; border-radius: 50px; height: 32px; width: 32px }

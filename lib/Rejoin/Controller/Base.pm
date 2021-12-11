@@ -43,16 +43,7 @@ sub ok {
     return;
 }
 
-sub page {
-
-    my $c        = shift;
-    my $ti       = $c->session->{tokeninfo};
-    my $voter_rs = RejoinDB->resultset('Voter');
-
-    if (my $voter = $voter_rs->find($ti->{email})) {
-        $c->stash(voter => $voter);
-    }
-}
+sub page { }
 
 sub fail {
     my ($c,$error) = @_;
