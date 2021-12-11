@@ -43,6 +43,17 @@ sub ok {
     return;
 }
 
+sub page {
+
+    my $c        = shift;
+    my $ti       = $c->session->{tokeninfo};
+    my $voter_rs = RejoinDB->resultset('Voter');
+
+    if (my $voter = $voter_rs->find($ti->{email})) {
+        $c->stash(voter => $voter);
+    }
+}
+
 sub fail {
     my ($c,$error) = @_;
     $c->app->log->error("Controller Error was $error");

@@ -3,8 +3,6 @@ package Rejoin::Controller::Feedback;
 use Mojo::Base 'Rejoin::Controller::Base';
 use Try::Tiny;
 
-sub page { }
-
 sub post {
     my $c   = shift;
 

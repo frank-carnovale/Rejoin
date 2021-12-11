@@ -1,0 +1,9 @@
+
+# to run      :  source launcher
+# to run again:  source launcher
+# to stop     :  hypnotoad -s script/rejoin
+
+export REJOIN_LOG_PATH=/mnt/g/scratch/rejoin/log_$(date +%F_%T).log
+
+MOJO_REVERSE_PROXY=1 MOJO_TMPDIR=/mnt/g/scratch/rejoin MOJO_LOG_LEVEL=debug hypnotoad script/rejoin
+
